@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dr-demo-partner-gateway
+  namespace: partners
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dr-demo-partner-gateway
+  template:
+    metadata:
+      labels:
+        app: dr-demo-partner-gateway
+    spec:
+      containers:
+        - name: dr-demo-partner-gateway
+          image: ghcr.io/oodles-noodles/dr-demo-partner-gateway:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: dr-demo-partner-gateway-db
+                  key: url

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dr-demo-partner-gateway
+  namespace: partners
+spec:
+  type: ClusterIP
+  selector:
+    app: dr-demo-partner-gateway
+  ports:
+    - port: 80
+      targetPort: 8080

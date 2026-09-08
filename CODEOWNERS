@@ -1,0 +1,4 @@
+# Ownership for dr-demo-partner-gateway
+*                   @oodles-noodles/platform-engineering
+/app/crypto.py      @oodles-noodles/security-engineering
+/deploy/            @oodles-noodles/sre
